@@ -19,7 +19,6 @@ export default {
 <style scoped>
 .input {
     padding: 5px 10px;
-    margin-top: 15px;
     border: 2px solid grey;
 }
 </style>

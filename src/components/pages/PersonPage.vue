@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="person-page">
 		<person-form @add="addPerson" />
 		<person-list :persons="persons" @remove="removePerson" />
 		<app-button @click="$router.push('/products')">Дальше</app-button>
@@ -35,4 +35,14 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.person-page {
+	width: 50%;
+	height: 100%;
+	margin: 0 auto;
+	background-color: rgba(192, 172, 172, 0.349);
+
+	display: flex;
+	flex-direction: column;
+}
+</style>

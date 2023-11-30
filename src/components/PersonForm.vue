@@ -1,6 +1,5 @@
 <template>
     <form @submit.prevent>
-        <h4>Добавление человека</h4>
         <app-input v-model="person.name" type="text" placeholder="Имя"/>
         <app-button class="btn" @click="addPerson">Добавить</app-button>
     </form>
@@ -30,6 +29,15 @@ export default {
 <style scoped>
 form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+form > input {
+    flex-grow: 1;
 }
 </style>

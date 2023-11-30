@@ -21,8 +21,9 @@ export default {
 <style scoped>
 .person {
     padding: 15px;
-    margin-top: 15px;
+    margin: 15px 0;
     border: 2px solid grey;
+    
     display: flex;
     justify-content: space-between;
 }

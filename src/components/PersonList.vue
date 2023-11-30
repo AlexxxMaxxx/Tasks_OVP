@@ -1,7 +1,7 @@
 <template>
 	<div v-if="persons.length">
 		<!--v-show="persons.length"-->
-		<h3>Участники</h3>
+		<h3>Сытые пользователи</h3>
 		<person
 			v-for="person in persons"
 			:person="person"
