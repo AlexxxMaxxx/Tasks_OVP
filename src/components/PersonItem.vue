@@ -1,7 +1,7 @@
 <template>
-    <div class="person">
-        <div>{{ person.name }}</div>
-        <div class="person__btns">
+    <div class="person-item">
+        <div class="person-item__name">{{ person.name }}</div>
+        <div class="person-item__rmv-btn rmv-btn">
             <app-button @click="$emit('remove', person)">Удалить</app-button>
         </div>
     </div>
@@ -19,12 +19,12 @@ export default {
 </script>
 
 <style scoped>
-.person {
+.person-item {
     padding: 15px;
-    margin: 15px 0;
-    border: 2px solid grey;
-    
     display: flex;
     justify-content: space-between;
+}
+.person-item__name {
+    /* как-нибудь выделять */
 }
 </style>

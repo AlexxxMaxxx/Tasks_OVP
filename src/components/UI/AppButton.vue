@@ -11,10 +11,10 @@ export default {
 </script>
 
 <style scoped>
+
 .btn {
     padding: 5px 10px;
-    background: none;
-    color: grey;
+    color: rgb(51, 50, 50);
     border: 2px solid grey;
 }
 </style>

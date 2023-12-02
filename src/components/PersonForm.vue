@@ -1,7 +1,7 @@
 <template>
-    <form @submit.prevent>
-        <app-input v-model="person.name" type="text" placeholder="Имя"/>
-        <app-button class="btn" @click="addPerson">Добавить</app-button>
+    <form class="person-form" @submit.prevent>
+        <app-input class="person-form__input input" v-model="person.name" type="text" placeholder="Имя"/>
+        <app-button class="person-form__add-btn add-btn" @click="addPerson">Добавить</app-button>
     </form>
 </template>
 
@@ -27,17 +27,13 @@ export default {
 </script>
 
 <style scoped>
-form {
+.person-form {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-top: 15px;
-    margin-bottom: 15px;
     gap: 5px;
 }
-form > input {
+
+.person-form__input {
     flex-grow: 1;
 }
+
 </style>
