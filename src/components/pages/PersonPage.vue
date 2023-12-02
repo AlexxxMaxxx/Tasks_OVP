@@ -9,7 +9,7 @@
 				<person-list :persons="persons" @remove="removePerson" />
 			</div>
 			<div class="persons__footer">
-				<app-button @click="$router.push('/products')">Дальше</app-button>
+				<app-button class="next-btn" @click="$router.push('/products')">Дальше</app-button>
 			</div>
 		</div>
 	</div>
