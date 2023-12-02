@@ -14,18 +14,21 @@ export default {
       product: {
         name: "",
         price: 0,
-        amount: 0
+        amount: 0,
+        total: 0
       }
     }
   },
   methods: {
     addProduct() {
       this.product.id = Date.now();
+      this.product.total = this.product.price * this.product.amount;
       this.$emit('addProduct', this.product);
       this.product = {
         name: "",
         price: 0,
-        amount: 0
+        amount: 0,
+        total: 0
       }
     },
   }
