@@ -1,7 +1,7 @@
 <template>
     <div class="person-item">
         <div class="person-item__name">{{ person.name }}</div>
-        <app-button class="person-item__rmv-btn rmv-btn" @click="$emit('remove', person)">Удалить</app-button>
+        <app-button class="person-item__rmv-btn rmv-btn" @click="$emit('removePerson', person)">Удалить</app-button>
     </div>
 </template>
 

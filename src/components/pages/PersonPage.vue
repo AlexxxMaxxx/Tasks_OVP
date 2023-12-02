@@ -1,14 +1,13 @@
 <template>
 	<div class="persons">
 		<div class="persons__body">
-			<!--???-->
-			<div class="persons__header">
-				<person-form @add="addPerson" />
+			<div class="persons__header header">
+				<person-form @addPerson="addPerson" />
 			</div>
-			<div class="persons__content">
-				<person-list :persons="persons" @remove="removePerson" />
+			<div class="persons__content content">
+				<person-list :persons="persons" @removePerson="removePerson" />
 			</div>
-			<div class="persons__footer">
+			<div class="persons__footer footer">
 				<app-button class="next-btn" @click="$router.push('/products')">Дальше</app-button>
 			</div>
 		</div>
@@ -25,7 +24,7 @@ export default {
 	},
 	data() {
 		return {
-			persons: [
+			persons: [ /*потом очистить*/
 				{ id: 1, name: 'Саша' },
 				{ id: 2, name: 'Вика' },
 				{ id: 3, name: 'Вероника' },
@@ -44,31 +43,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.persons__body {
-	width: 50%;
-	height: 100%;
-	min-height: 400px;
-	margin: 0 auto;
-	background-color: rgba(192, 172, 172, 0.349);
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.persons__header {
-	padding: 15px;
-	background-color: rgb(134, 127, 140);
-}
-.persons__content {
-	/* при добавлении scss сделать, чтобы высота изменялась от 
-	кол-ва элементов */
-	padding: 15px;
-	background-color: rgb(189, 184, 193);
-}
-.persons__footer {
-	padding: 15px;
-	background-color: rgb(231, 227, 234);
-}
-</style>
+<style scoped></style>
