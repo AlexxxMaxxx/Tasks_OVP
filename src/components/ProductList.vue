@@ -1,7 +1,7 @@
 <template>
   <div class="product-list">
     <div class="product-list__header-list header-list">
-      <h3>{{ headerList }}</h3>
+      <h3>{{ getHeaderList }}</h3>
     </div>
     <div class="product-list__content-list content-list">
     <product
@@ -17,11 +17,6 @@
 <script>
 import Product from '@/components/ProductItem.vue';
 export default {
-  data() {
-    return {
-      headerList: "" /*заменить потом на А чего это мы голодаем? Добавим что-нибудь!*/
-    }
-  },
   props: {
     products: {
       type: Array,
@@ -31,19 +26,18 @@ export default {
   components: {
     Product
   },
-  updated() {
-    this.headerList = this.getHeaderList();
-  },
-  methods: {
+  computed: {
     getHeaderList() {
       const amountProducts = this.products.length;
+      const modulo = amountProducts % 10;
 
       if (amountProducts) {
-        if (amountProducts === 1) {
-          return amountProducts + " позиция";
-        }
-        else if (amountProducts > 4) {
+        if (modulo === 0 || modulo > 4 ||
+          amountProducts > 10 && amountProducts < 15) {
           return amountProducts + " позиций";
+        }
+        else if(modulo === 1) {
+          return amountProducts + " позиция";
         }
         else {
           return amountProducts + " позиции";

@@ -1,7 +1,7 @@
 <template>
 	<div class="person-list">
 	<div class="person-list__header-list header-list">
-			<h3>{{ headerList }}</h3>
+			<h3>{{ getHeaderList }}</h3>
 	</div>
 	<div class="person-list__content-list content-list">
 	<person
@@ -18,11 +18,6 @@
 <script>
 import Person from './PersonItem.vue'
 export default {
-	data() {
-		return {
-			headerList: "" /*заменить потом на Кто угощает? Добавим кого-нибудь!*/
-		}
-	},
 	components: {
 		Person,
 	},
@@ -32,22 +27,21 @@ export default {
 			required: true,
 		},
 	},
-	updated() {
-		this.headerList = this.getHeaderList();
-	},
-	methods: {
+	computed: {
 		getHeaderList() {
 			const amountPersons = this.persons.length;
-	
+			const modulo = amountPersons % 10;
+
 			if (amountPersons) {
-				if (amountPersons === 1) {
-					return amountPersons + " cытый пользователь!";
+				if (modulo === 0 || modulo > 4 ||
+					amountPersons > 10 && amountPersons < 15) {
+						return amountPersons + " cытых пользователей";
 				}
-				else if (amountPersons > 4) {
-					return amountPersons + " cытых пользователей!";
+				else if (modulo === 1) {
+					return amountPersons + " cытый пользователь";
 				}
 				else {
-					return amountPersons + " cытых пользователя!";
+					return amountPersons + " cытых пользователя";
 				}
 			}
 			else {
