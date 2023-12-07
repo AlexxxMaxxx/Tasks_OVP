@@ -5,7 +5,7 @@
 				<person-form @addPerson="addPerson" />
 			</div>
 			<div class="persons__content content">
-				<person-list :persons="persons" @removePerson="removePerson" />
+				<person-list :persons="getPersons" @removePerson="removePerson" />
 			</div>
 			<div class="persons__footer footer">
 				<app-button class="next-btn" @click="$router.push('/products')">Дальше</app-button>
@@ -17,21 +17,13 @@
 <script>
 import PersonList from '@/components/PersonList.vue'
 import PersonForm from '@/components/PersonForm.vue'
+import { mapGetters } from 'vuex'
 export default {
 	components: {
 		PersonList,
 		PersonForm,
 	},
-	data() {
-		return {
-			persons: [ /*потом очистить*/
-				{ id: 1, name: 'Саша' },
-				{ id: 2, name: 'Вика' },
-				{ id: 3, name: 'Вероника' },
-				{ id: 4, name: 'Настя' },
-			],
-		}
-	},
+	computed: mapGetters(['getPersons']),
 	methods: {
 		addPerson(person) {
 			this.persons.push(person)
