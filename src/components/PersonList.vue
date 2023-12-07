@@ -8,7 +8,7 @@
 				v-for="person in persons"
 				:person="person"
 				:key="person.id"
-				@removePerson="$emit('removePerson', person)"
+				@remove="$emit('remove', person)"
 			/>
 	</div>
 	</div>
