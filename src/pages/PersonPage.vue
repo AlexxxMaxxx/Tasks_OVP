@@ -2,7 +2,7 @@
 	<div class="persons">
 		<div class="persons__body">
 			<div class="persons__header header">
-				<person-form @addPerson="addPerson" />
+				<person-form />
 			</div>
 			<div class="persons__content content">
 				<person-list :persons="getPersons" @removePerson="removePerson" />
@@ -25,9 +25,6 @@ export default {
 	},
 	computed: mapGetters(['getPersons']),
 	methods: {
-		addPerson(person) {
-			this.persons.push(person)
-		},
 		removePerson(person) {
 			this.persons = this.persons.filter(p => p.id !== person.id)
 		},

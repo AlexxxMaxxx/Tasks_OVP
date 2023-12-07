@@ -1,27 +1,27 @@
 <template>
-    <form class="person-form" @submit.prevent>
-        <app-input class="person-form__input input" v-model="person.name" type="text" placeholder="Имя" />
-        <app-button class="person-form__add-btn add-btn" @click="addPerson">Добавить</app-button>
+    <form class="person-form" @submit.prevent="submit">
+        <app-input class="person-form__input input" v-model="name" type="text" placeholder="Имя" />
+        <app-button class="person-form__add-btn add-btn" type="submit">Добавить</app-button>
     </form>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
     data() {
-        return {
-            person: {
-                name: ""
-            }
-        }
+        return {      
+            name: ""
+        };
     },
     methods: {
-        addPerson() {
-            this.person.id = Date.now();
-            this.$emit("addPerson", this.person);
-            this.person = {
-                name: ""
-            }
-        }
+        ...mapMutations(['addPerson']),
+        submit() {
+            this.addPerson({
+                id: Date.now(),
+                name: this.name
+            });
+            this.name = "";
+        },
     }
 }
 </script>

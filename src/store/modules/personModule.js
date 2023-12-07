@@ -22,6 +22,9 @@ export const personModule = {
 			// оно мне надо?
 			state.persons = persons
 		},
+		addPerson(state, newPerson) {
+			state.persons.push(newPerson)
+		}
 	},
 	actions: {},
 }
