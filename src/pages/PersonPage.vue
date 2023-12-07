@@ -2,7 +2,7 @@
 	<div class="persons">
 		<div class="persons__body">
 			<div class="persons__header header">
-				<person-form />
+				<person-form @add="add" />
 			</div>
 			<div class="persons__content content">
 				<person-list :persons="getPersons" @removePerson="removePerson" />
@@ -17,14 +17,29 @@
 <script>
 import PersonList from '@/components/PersonList.vue'
 import PersonForm from '@/components/PersonForm.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
 	components: {
 		PersonList,
 		PersonForm,
 	},
-	computed: mapGetters(['getPersons']),
+	computed: {
+		...mapGetters({
+			getPersons: 'person/getPersons'
+		})
+	},
+	
 	methods: {
+		...mapMutations({
+			addPerson: 'person/addPerson'
+		}),
+
+		add(newPerson) {
+			this.addPerson(newPerson)
+		},
+
+		// здесь добавлять
 		removePerson(person) {
 			this.persons = this.persons.filter(p => p.id !== person.id)
 		},

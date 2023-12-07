@@ -13,7 +13,6 @@ export const personModule = {
 			return state.persons
 		},
 		getPersonsLength(_, getters) {
-			// оно мне надо?? getters?
 			return getters.getPersons.length
 		},
 	},
@@ -24,7 +23,11 @@ export const personModule = {
 		},
 		addPerson(state, newPerson) {
 			state.persons.push(newPerson)
+		},
+		removePerson(state, person) {
+			state.persons = state.persons.filter(p => p.id !== person.id)
 		}
 	},
 	actions: {},
+	namespaced: true
 }

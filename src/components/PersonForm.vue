@@ -1,12 +1,11 @@
 <template>
-    <form class="person-form" @submit.prevent="submit">
+    <form class="person-form" @submit.prevent>
         <app-input class="person-form__input input" v-model="name" type="text" placeholder="Имя" />
-        <app-button class="person-form__add-btn add-btn" type="submit">Добавить</app-button>
+        <app-button class="person-form__add-btn add-btn" @click="addPerson">Добавить</app-button>
     </form>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
 export default {
     data() {
         return {      
@@ -14,14 +13,13 @@ export default {
         };
     },
     methods: {
-        ...mapMutations(['addPerson']),
-        submit() {
-            this.addPerson({
+        addPerson() {
+            this.$emit('add', {
                 id: Date.now(),
                 name: this.name
             });
-            this.name = "";
-        },
+            this.name = ""
+        }
     }
 }
 </script>
