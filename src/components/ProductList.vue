@@ -4,12 +4,7 @@
       <h3>{{ getHeaderList }}</h3>
     </div>
     <div class="product-list__content-list content-list">
-    <product
-  				v-for="product in products"
-  				:product="product"
-  				:key="product.id"
-          @removeProduct="$emit('removeProduct', product)"
-  			/>
+      <product v-for="product in products" :product="product" :key="product.id" @remove="$emit('remove', product)" />
     </div>
   </div>
 </template>
@@ -36,7 +31,7 @@ export default {
           amountProducts > 10 && amountProducts < 15) {
           return amountProducts + " позиций";
         }
-        else if(modulo === 1) {
+        else if (modulo === 1) {
           return amountProducts + " позиция";
         }
         else {
@@ -51,5 +46,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

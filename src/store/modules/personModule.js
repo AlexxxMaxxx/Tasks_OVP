@@ -13,12 +13,13 @@ export const personModule = {
 			return state.persons
 		},
 		getPersonsLength(_, getters) {
+			// удалить?
 			return getters.getPersons.length
 		},
 	},
 	mutations: {
 		setPersons(state, persons) {
-			// оно мне надо?
+			// удалить?
 			state.persons = persons
 		},
 		addPerson(state, newPerson) {
@@ -28,6 +29,5 @@ export const personModule = {
 			state.persons = state.persons.filter(p => p.id !== person.id)
 		}
 	},
-	actions: {},
 	namespaced: true
 }

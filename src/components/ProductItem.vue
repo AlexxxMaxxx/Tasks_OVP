@@ -8,9 +8,9 @@
     <div class="product-item__content">
       <div class="product-item__property">Стоимость: {{ product.price }}</div>
       <div class="product-item__property">Количество: {{ product.amount }}</div>
-      <app-button class="product-item__rmv-btn rmv-btn" @click="$emit('removeProduct', product)">Удалить</app-button>
+      <app-button class="product-item__rmv-btn rmv-btn" @click="$emit('remove', product)">Удалить</app-button>
     </div>
-    
+
     <div class="product-item__content_hidden">
 
     </div>
@@ -49,10 +49,12 @@ export default {
   font-weight: bold;
 }
 
-.product-item__content { /* media-запрос при уменьшении размера окна */
+.product-item__content {
+  /* media-запрос при уменьшении размера окна */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 15px;
   background-color: rgb(210, 207, 213);
-}</style>
+}
+</style>

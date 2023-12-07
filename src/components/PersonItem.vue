@@ -22,6 +22,7 @@ export default {
     display: flex;
     justify-content: space-between;
 }
+
 .person-item__name {
     /* как-нибудь выделять */
 }
