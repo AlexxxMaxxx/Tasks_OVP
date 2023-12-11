@@ -1,10 +1,10 @@
 export const productModule = {
   state: () => ({
     products: [ /*потом очистить*/
-      { id: 1, name: 'Чизбургер', price: 100, amount: 4, total: 400 },
-      { id: 2, name: 'Картошка фри', price: 70, amount: 2, total: 140 },
-      { id: 3, name: 'Сырный соус', price: 40, amount: 2, total: 80 },
-      { id: 4, name: 'Кока-кола', price: 60, amount: 1, total: 60 },
+      { id: 1, name: 'Чизбургер', price: 100, amount: 4, idPayer: 1, total: 400 },
+      { id: 2, name: 'Картошка фри', price: 70, amount: 2, idPayer: 1, total: 140 },
+      { id: 3, name: 'Сырный соус', price: 40, amount: 2, idPayer: 1, total: 80 },
+      { id: 4, name: 'Кока-кола', price: 60, amount: 1, idPayer: 1, total: 60 },
     ],
   }),
   getters: {

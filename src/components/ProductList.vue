@@ -4,7 +4,7 @@
       <h3>{{ getHeaderList }}</h3>
     </div>
     <div class="product-list__content-list content-list">
-      <product v-for="product in products" :product="product" :key="product.id" @remove="$emit('remove', product)" />
+      <product v-for="product in products" :product="product" :persons="persons" :key="product.id" @remove="$emit('remove', product)" />
     </div>
   </div>
 </template>
@@ -14,6 +14,10 @@ import Product from '@/components/ProductItem.vue';
 export default {
   props: {
     products: {
+      type: Array,
+      required: true,
+    },
+    persons: {
       type: Array,
       required: true,
     }

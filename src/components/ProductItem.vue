@@ -1,13 +1,16 @@
 <template>
   <div class="product-item">
     <div class="product-item__header">
-      <div class="product-item__property">{{ product.name }}</div>
-      <div class="product-item__property">Итого: {{ product.total }}</div>
+      <div class="product-item__text-property">{{ product.name }}</div>
+      <div class="product-item__number-property">Итого: {{ product.total }}</div>
     </div>
 
     <div class="product-item__content">
-      <div class="product-item__property">Стоимость: {{ product.price }}</div>
-      <div class="product-item__property">Количество: {{ product.amount }}</div>
+      <div class="product-item__number-property">Стоимость: {{ product.price }}</div>
+      <div class="product-item__number-property">Количество: {{ product.amount }}</div>
+      <div class="product-item__select-property">Кто угощает: 
+        {{ persons.find(p => p.id === product.idPayer).name }}</div>
+
       <app-button class="product-item__rmv-btn rmv-btn" @click="$emit('remove', product)">Удалить</app-button>
     </div>
 
@@ -22,6 +25,10 @@ export default {
   props: {
     product: {
       type: Object,
+      required: true,
+    },
+    persons: {
+      type: Array,
       required: true,
     }
   }
