@@ -10,7 +10,11 @@
       <div class="product-item__number-property">Количество: {{ product.amount }}</div>
       <div class="product-item__select-property">Кто угощает: 
         {{ persons.find(p => p.id === product.idPayer).name }}</div>
-
+      <div class="product-item__checkbox-property">Кто использовал:
+        <div v-for="checkedId in product.checkedId">
+          {{ persons.find(p => p.id === checkedId).name  }}
+        </div>
+      </div>
       <app-button class="product-item__rmv-btn rmv-btn" @click="$emit('remove', product)">Удалить</app-button>
     </div>
 
