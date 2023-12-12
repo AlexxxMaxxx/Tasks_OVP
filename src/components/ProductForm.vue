@@ -46,10 +46,6 @@
 						<input type="checkbox" :value="person" v-model="chosenPeople" />
 						<span>{{ person.name }}</span>
 					</label>
-					<br />
-					<h4>Chosen = {{ chosenPeople }}</h4>
-					<h4>All chosen: {{ allChosen }}</h4>
-					<h4>Indeterminate: {{ indeterminate }}</h4>
 				</label>
 			</div>
 		</form>
