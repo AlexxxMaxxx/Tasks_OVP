@@ -8,7 +8,9 @@
 				<person-list :persons="getPersons" @remove="remove" />
 			</div>
 			<div class="persons__footer footer">
-				<app-button class="next-btn" @click="$router.push('/products')">Дальше</app-button>
+				<app-button class="next-btn" @click="$router.push('/products')"
+					>Дальше</app-button
+				>
 			</div>
 		</div>
 	</div>
@@ -26,14 +28,14 @@ export default {
 	},
 	computed: {
 		...mapGetters({
-			getPersons: 'person/getPersons'
-		})
+			getPersons: 'person/getPersons',
+		}),
 	},
 
 	methods: {
 		...mapMutations({
 			addPerson: 'person/addPerson',
-			removePerson: 'person/removePerson'
+			removePerson: 'person/removePerson',
 		}),
 		/* как я прочла из др. источников, обращаться к Vuex следуют в компонентах,
 		загружающих данные (контейнерах). В нашем случае, контейнерами можно считать странички,

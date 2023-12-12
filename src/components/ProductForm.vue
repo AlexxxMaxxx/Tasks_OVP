@@ -34,17 +34,22 @@
 
 			<div class="product-form__content">
 				<label class="product-form__checkbox">
-					<input type="checkbox" @change="toggleAll" :indeterminate="indeterminate" v-model="allChosen" />
+					<input
+						type="checkbox"
+						@change="toggleAll"
+						:indeterminate="indeterminate"
+						v-model="allChosen"
+					/>
 					<span>{{ allChosen ? 'Un-choose All' : 'Choose All' }}</span>
 
 					<label class="product-form__checkbox" v-for="person in persons">
 						<input type="checkbox" :value="person" v-model="chosenPeople" />
 						<span>{{ person.name }}</span>
 					</label>
-          <br>
+					<br />
 					<h4>Chosen = {{ chosenPeople }}</h4>
-          <h4>All chosen: {{ allChosen }}</h4>
-          <h4>Indeterminate: {{ indeterminate }}</h4>
+					<h4>All chosen: {{ allChosen }}</h4>
+					<h4>Indeterminate: {{ indeterminate }}</h4>
 				</label>
 			</div>
 		</form>
@@ -69,20 +74,20 @@ export default {
 			indeterminate: false,
 		}
 	},
-  watch: {
-      chosenPeople(newValue) {
-        if (newValue.length === 0) {
-          this.indeterminate = false
-          this.allChosen = false
-        } else if (newValue.length === this.persons.length) {
-          this.indeterminate = false
-          this.allChosen = true
-        } else {
-          this.indeterminate = true
-          this.allChosen = false
-        }
-      }
-    },
+	watch: {
+		chosenPeople(newValue) {
+			if (newValue.length === 0) {
+				this.indeterminate = false
+				this.allChosen = false
+			} else if (newValue.length === this.persons.length) {
+				this.indeterminate = false
+				this.allChosen = true
+			} else {
+				this.indeterminate = true
+				this.allChosen = false
+			}
+		},
+	},
 	methods: {
 		toggleAll() {
 			console.log(this.allChosen)

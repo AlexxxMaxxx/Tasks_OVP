@@ -27,7 +27,7 @@ export const personModule = {
 		},
 		removePerson(state, person) {
 			state.persons = state.persons.filter(p => p.id !== person.id)
-		}
+		},
 	},
-	namespaced: true
+	namespaced: true,
 }

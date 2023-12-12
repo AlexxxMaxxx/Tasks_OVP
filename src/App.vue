@@ -60,7 +60,8 @@
 	/* изменить стили скролла */
 }
 
-.content-list>* {
+.content-list > * {
 	border: 2px solid grey;
 	margin: 0px 5px 15px 0px;
-}</style>
+}
+</style>

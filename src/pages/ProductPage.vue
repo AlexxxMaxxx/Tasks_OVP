@@ -5,44 +5,50 @@
 				<product-form :persons="getPersons" @add="add"></product-form>
 			</div>
 			<div class="products__content content">
-				<product-list :products="getProducts" :persons="getPersons" @remove="remove"></product-list>
+				<product-list
+					:products="getProducts"
+					:persons="getPersons"
+					@remove="remove"
+				></product-list>
 			</div>
 			<div class="products__footer footer">
-				<app-button class="next-btn" @click="$router.push('/results')">Дальше</app-button>
+				<app-button class="next-btn" @click="$router.push('/results')"
+					>Дальше</app-button
+				>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-import ProductForm from '@/components/ProductForm.vue';
-import ProductList from '@/components/ProductList.vue';
-import { mapGetters, mapMutations } from 'vuex';
+import ProductForm from '@/components/ProductForm.vue'
+import ProductList from '@/components/ProductList.vue'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
 	components: {
 		ProductForm,
-		ProductList
+		ProductList,
 	},
 	computed: {
 		...mapGetters({
 			getProducts: 'product/getProducts',
-			getPersons: 'person/getPersons'
+			getPersons: 'person/getPersons',
 		}),
 	},
 	methods: {
 		...mapMutations({
 			addProduct: 'product/addProduct',
-			removeProduct: 'product/removeProduct'
+			removeProduct: 'product/removeProduct',
 		}),
 
 		add(product) {
-			this.addProduct(product);
+			this.addProduct(product)
 		},
 		remove(product) {
-			this.removeProduct(product);
-		}
-	}
+			this.removeProduct(product)
+		},
+	},
 }
 </script>
 
