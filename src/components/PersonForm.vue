@@ -2,7 +2,7 @@
 	<form class="person-form" @submit.prevent>
 		<app-input
 			class="person-form__input input"
-			v-model="name"
+			v-model.trim="name"
 			type="text"
 			placeholder="Имя"
 		/>
@@ -23,7 +23,7 @@ export default {
 		addPerson() {
 			this.$emit('add', {
 				id: Date.now(),
-				name: this.name,
+				name: this.name.charAt(0).toUpperCase() + this.name.toLowerCase().slice(1),
 			})
 			this.name = ''
 		},

@@ -2,7 +2,7 @@
 	<form class="product-form" @submit.prevent>
 		<app-input
 			class="product-form__input input"
-			v-model="name"
+			v-model.trim="name"
 			type="text"
 			placeholder="Название"
 		/>
@@ -92,7 +92,7 @@ export default {
 		addProduct() {
 			this.$emit('add', {
 				id: Date.now(),
-				name: this.name,
+				name: this.name.charAt(0).toUpperCase() + this.name.toLowerCase().slice(1),
 				price: this.price,
 				amount: this.amount,
 				payer: this.payer,
