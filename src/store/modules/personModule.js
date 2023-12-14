@@ -13,7 +13,6 @@ export const personModule = {
 			return state.persons
 		},
 		getPersonsLength(_, getters) {
-			// удалить?
 			return getters.getPersons.length
 		},
 	},

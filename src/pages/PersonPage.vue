@@ -8,9 +8,9 @@
 				<person-list :persons="getPersons" @remove="remove" />
 			</div>
 			<div class="persons__footer footer">
-				<app-button class="next-btn" @click="$router.push('/products')"
-					>Дальше</app-button
-				>
+				<app-button :class="[hasError ? 'next-btn_disabled' : 'next-btn']" @click="allowTransition">{{
+					buttonContent
+				}}</app-button>
 			</div>
 		</div>
 	</div>
@@ -22,6 +22,12 @@ import PersonForm from '@/components/PersonForm.vue'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
+	data() {
+		return {
+			buttonContent: 'Дальше',
+			hasError: false, // later changed on true, initial length = 0
+		}
+	},
 	components: {
 		PersonList,
 		PersonForm,
@@ -29,7 +35,8 @@ export default {
 	computed: {
 		...mapGetters({
 			getPersons: 'person/getPersons',
-		}),
+			getPersonsLength: 'person/getPersonsLength',
+		})
 	},
 
 	methods: {
@@ -49,6 +56,22 @@ export default {
 		remove(person) {
 			this.removePerson(person)
 		},
+
+		allowTransition() {
+			const len = this.getPersonsLength;
+			this.hasError = true;
+
+			if (len === 0) {
+				this.buttonContent = 'Добавьте кого-нибудь!';
+			} else if (len === 1) {
+				this.buttonContent = 'Кушать в одиночестве не хорошо :( Добавьте кого-нибудь еще!';
+			} else { // replace on animation
+				this.buttonContent = 'Дальше';
+				this.$router.push('/products');
+				this.hasError = false;
+			}
+		},
+		
 	},
 }
 </script>
