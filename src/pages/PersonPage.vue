@@ -24,7 +24,7 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
 	data() {
 		return {
-			buttonContent: 'Дальше',
+			buttonContent: 'Добавить продукты',
 			hasError: false, // later changed on true, initial length = 0
 		}
 	},
@@ -62,11 +62,11 @@ export default {
 			this.hasError = true;
 
 			if (len === 0) {
-				this.buttonContent = 'Добавьте кого-нибудь!';
+				this.buttonContent = 'Нет тела, нет дела! Добавьте кого-нибудь!';
 			} else if (len === 1) {
 				this.buttonContent = 'Кушать в одиночестве не хорошо :( Добавьте кого-нибудь еще!';
 			} else { // replace on animation
-				this.buttonContent = 'Дальше';
+				this.buttonContent = 'Добавить продукты';
 				this.$router.push('/products');
 				this.hasError = false;
 			}

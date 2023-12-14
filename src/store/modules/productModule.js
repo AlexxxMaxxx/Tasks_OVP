@@ -57,7 +57,6 @@ export const productModule = {
 			return state.products
 		},
 		getProductsLength(_, getters) {
-			// удалить?
 			return getters.getProducts.length
 		},
 	},

@@ -12,8 +12,8 @@
 				></product-list>
 			</div>
 			<div class="products__footer footer">
-				<app-button class="next-btn" @click="$router.push('/results')"
-					>Дальше</app-button
+				<app-button :class="[hasError ? 'next-btn_disabled' : 'next-btn']" @click="allowTransition"
+					>{{ buttonContent }}</app-button
 				>
 			</div>
 		</div>
@@ -26,6 +26,12 @@ import ProductList from '@/components/ProductList.vue'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
+	data() {
+		return {
+			buttonContent: 'Получить результаты',
+			hasError: false, // later changed on true, initial length = 0
+		}
+	},
 	components: {
 		ProductForm,
 		ProductList,
@@ -33,6 +39,7 @@ export default {
 	computed: {
 		...mapGetters({
 			getProducts: 'product/getProducts',
+			getProductsLength: 'product/getProductsLength',
 			getPersons: 'person/getPersons',
 		}),
 	},
@@ -45,8 +52,24 @@ export default {
 		add(product) {
 			this.addProduct(product)
 		},
+
 		remove(product) {
 			this.removeProduct(product)
+		},
+
+		allowTransition() {
+			const len = this.getProductsLength;
+			this.hasError = true;
+
+			if (len === 0) {
+				this.buttonContent = 'А чего считать-то? Добавьте что-нибудь!';
+			} else if (len === 1) {
+				this.buttonContent = 'А что это мы на диете? Добавьте что-нибудь еще!';
+			} else { // replace on animation
+				this.buttonContent = 'Получить результаты';
+				this.$router.push('/results');
+				this.hasError = false;
+			}
 		},
 	},
 }
