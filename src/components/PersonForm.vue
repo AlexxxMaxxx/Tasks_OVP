@@ -13,12 +13,23 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+//import { minLength, required } from '@vuelidate/validators'
+
 export default {
+	setup () { return { v$: useVuelidate() } },
 	data() {
 		return {
 			name: '',
 		}
 	},
+  validations () {
+    return {
+			name: {
+				
+			}
+    }
+  },
 	methods: {
 		addPerson() {
 			this.$emit('add', {
