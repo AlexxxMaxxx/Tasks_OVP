@@ -2,18 +2,21 @@
 	<form class="product-form" @submit.prevent>
 		<app-input
 			class="product-form__input input"
+			:class="{ invalid : v$.name.$error }"
 			v-model.trim="name"
 			type="text"
 			placeholder="Название"
 		/>
 		<app-input
 			class="product-form__input input"
+			:class="{ invalid: v$.price.$error }"
 			v-model="price"
 			type="number"
 			placeholder="Стоимость"
 		/>
 		<app-input
 			class="product-form__input input"
+			:class="{ invalid: v$.amount.$error }"
 			v-model="amount"
 			type="number"
 			placeholder="Количество"
@@ -50,24 +53,51 @@
 			</div>
 		</form>
 
-		<app-button class="product-form__add-btn add-btn" @click="addProduct"
-			>Добавить</app-button
-		>
+		<app-button 
+		class="product-form__add-btn add-btn" 
+		:class="{ disabled: hasError }"
+		@click="inputValidation">{{
+			buttonContent
+		}}</app-button>
+
 	</form>
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required, minLength, minValue } from '@vuelidate/validators'
+
 export default {
+	setup() { return { v$: useVuelidate() } },
 	data() {
 		return {
 			name: '',
 			price: 0,
 			amount: 0,
 			payer: this.persons[0],
-			chosenPeople: [],
+			chosenPeople: this.persons,
 
-			allChosen: false,
+			allChosen: true,
 			indeterminate: false,
+
+			buttonContent: 'Добавить',
+			hasError: false,
+		}
+	},
+	validations() {
+		return {
+			name: {
+				required,
+				minLength: minLength(3)
+			},
+			price: {
+				required,
+				minValue: minValue(1)
+			},
+			amount: {
+				required,
+				minValue: minValue(1)
+			}
 		}
 	},
 	watch: {
@@ -88,6 +118,33 @@ export default {
 		toggleAll() {
 			console.log(this.allChosen)
 			this.chosenPeople = this.allChosen ? this.persons.slice() : []
+		},
+		inputValidation() {
+			this.v$.$touch()
+			if (!this.v$.$error) {
+				this.hasError = false;
+				this.buttonContent = 'Добавить';
+				this.addProduct();
+			}
+			else if(this.v$.$errors.length >= 3){
+				this.hasError = true;
+				this.buttonContent = 'Заполните все поля!';
+			}
+			else  if (this.v$.name.$dirty) {
+				this.hasError = true;
+				if(this.v$.price.minValue.$invalid) {
+					this.buttonContent = 'Бесплатный сыр только в мышеловке! Укажите стоимость.';
+				}
+				else if(this.v$.amount.minValue.$invalid) {
+					this.buttonContent = 'Количество не может быть нулевым!';
+				}
+				else if(this.v$.name.minLength.$invalid) {
+					this.buttonContent = 'Слишком короткое название!';
+				}
+				else {
+					this.buttonContent = 'Обязательное поле!';
+				}
+			}
 		},
 		addProduct() {
 			this.$emit('add', {

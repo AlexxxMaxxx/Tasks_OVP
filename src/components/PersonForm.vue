@@ -2,7 +2,7 @@
 	<form class="person-form" @submit.prevent>
 			<app-input 
 			class="person-form__input input" 
-			:class="{'is-invalid': hasError }"
+			:class="{invalid: hasError }"
 			v-model.trim="name" 
 			type="text" 
 			placeholder="Имя" />
