@@ -2,13 +2,15 @@
 	<div class="persons">
 		<div class="persons__body">
 			<div class="persons__header header">
-				<person-form @add="add" />
+				<person-form :persons="getPersons" @add="add" />
 			</div>
 			<div class="persons__content content">
 				<person-list :persons="getPersons" @remove="remove" />
 			</div>
 			<div class="persons__footer footer">
-				<app-button :class="[hasError ? 'next-btn_disabled' : 'next-btn']" @click="allowTransition">{{
+				<app-button 
+				class="next-btn"
+				:class="{ disabled : hasError }" @click="allowTransition">{{
 					buttonContent
 				}}</app-button>
 			</div>

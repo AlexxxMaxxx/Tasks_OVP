@@ -21,4 +21,8 @@ export default {
 	padding: 5px 10px;
 	border: 2px solid grey;
 }
+
+.is-invalid { /* заменить потом на scss, если ошибка делаем красную рамку */
+	border: 1px solid red;
+}
 </style>

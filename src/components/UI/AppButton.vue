@@ -23,8 +23,8 @@ export default {
 	background: rgb(160, 168, 227);
 }
 
-.next-btn_disabled {
-	background: rgb(219, 90, 72);;
+.disabled {
+	background: rgb(219, 90, 72);
 }
 
 .btn {
