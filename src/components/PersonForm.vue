@@ -67,6 +67,7 @@ export default {
 			this.$emit('add', {
 				id: Date.now(),
 				name: this.name.charAt(0).toUpperCase() + this.name.toLowerCase().slice(1),
+				debts: []
 			})
 			this.name = ''
 		},

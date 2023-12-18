@@ -2,10 +2,21 @@ export const personModule = {
 	state: () => ({
 		persons: [
 			/*потом очистить*/
-			{ id: 1, name: 'Саша' },
-			{ id: 2, name: 'Вика' },
-			{ id: 3, name: 'Вероника' },
-			{ id: 4, name: 'Настя' },
+			{ id: 1, 
+				name: 'Настя', 
+				debts: []
+			/*	debts: [{
+					id: 2,
+					amount: 500
+				}, {
+					id: 3,
+					amount: 200
+				}] */
+			},
+			{ id: 2, name: 'Вероника', debts: [] },
+			{ id: 3, name: 'Вика', debts: [] },
+			{ id: 4, name: 'Саша', debts: [] },
+			{ id: 5, name: 'Кодя', debts: [] },
 		],
 	}),
 	getters: {

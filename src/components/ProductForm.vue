@@ -121,6 +121,7 @@ export default {
 		},
 		inputValidation() {
 			this.v$.$touch()
+
 			if (!this.v$.$error) {
 				this.hasError = false;
 				this.buttonContent = 'Добавить';

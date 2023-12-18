@@ -11,6 +11,9 @@
 				:key="product.id"
 				@remove="$emit('remove', product)"
 			/>
+		</div> 
+		<div class="product-list__footer-list footer-list">
+			<h3>Промежуточный итог: {{ getSubtotal }}</h3>
 		</div>
 	</div>
 </template>
@@ -52,6 +55,13 @@ export default {
 				return 'А чего это мы голодаем? Добавьте что-нибудь!'
 			}
 		},
+		getSubtotal() {
+			let subtotal = 0
+			this.products.forEach((product) => {
+				subtotal += product.total
+			});
+			return subtotal
+		}
 	},
 }
 </script>
