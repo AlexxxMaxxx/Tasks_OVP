@@ -65,4 +65,17 @@
 	margin: 0px 5px 15px 0px;
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.list__item {
+  background-color: rgb(134, 127, 140);
+}
+.list__header {
+  color: rgb(34, 0, 255);
+  text-align: center;
+}
+
 </style>

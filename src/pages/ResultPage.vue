@@ -5,15 +5,12 @@
 				<h1>Результаты</h1>
 			</div>
 			<div class="results__content content">
-				
-				<div v-for="person in getPersons">
-					{{ person.name + ' должен'}}
-					<div v-for="p in person.debts">
-						{{ getPersons.find(pers => pers.id === p.id).name +
-						' - ' + p.amount + ' рублей'}}
-					</div> 
-				</div>
-
+				<app-button class="toggle-btn" @click="whoWhomlist = true"
+					>Кто-кому</app-button>
+				<app-button class="toggle-btn" @click="whoWhomlist = false"
+					>Кому-кто</app-button>
+			  <WhoWhomList v-if="whoWhomlist" :persons="getPersons"/>
+				<WhomWhoList v-else :persons="getPersons" :whomWho="whomWho"/>
 			</div>
 			<div class="results__footer footer">
 				<app-button class="next-btn" @click="$router.push('/')"
@@ -24,15 +21,25 @@
 </template>
 
 <script>
+import WhoWhomList from '@/components/WhoWhomList.vue';
+import WhomWhoList from '@/components/WhomWhoList.vue';
 import { mapGetters } from 'vuex'
 export default {
+	data: () => ({
+		whomWho: [],
+		whoWhomlist: true
+	}),
+	components: {
+		WhoWhomList,
+		WhomWhoList
+	},
 	created() {
 		this.getDebts();
 	},
 	computed: {
 		...mapGetters({
 			getProducts: 'product/getProducts',
-			getPersons: 'person/getPersons',
+			getPersons: 'person/getPersons'
 		}),
 	},
 	methods: {
@@ -48,6 +55,7 @@ export default {
 				})		
 			});
 			this.checkDebts()
+			this.getWhoWhom()
 		},
 		checkDebts() {
 			this.getPersons.forEach((person) => {
@@ -71,8 +79,22 @@ export default {
 					}
 				})
 			})
+		},
+		getWhoWhom() {
+			this.getPersons.forEach((curPerson) => {
+				const len = this.whomWho.push({ whom: curPerson.id, who: [] })
+				this.getPersons.forEach((person) => {
+					if (person.id !== curPerson.id) {
+						const index = person.debts.findIndex(d => d.id === curPerson.id)
+						if (index !== -1) {
+							this.whomWho[len - 1].who.push({id: person.id, amount: person.debts[index].amount})
+						}
+					}
+				})
+			})
+			this.whomWho.forEach((ww) => {console.log(ww)})
 		}
-	}
+	},
 }
 </script>
 
