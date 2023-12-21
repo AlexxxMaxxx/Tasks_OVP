@@ -75,13 +75,3 @@ export default {
 	},
 }
 </script>
-
-<style lang='scss' scoped>
-/*.person-form {
-	display: flex;
-	gap: 5px;
-}
-.person-form__input {
-	flex-grow: 1;
-}*/
-</style>
