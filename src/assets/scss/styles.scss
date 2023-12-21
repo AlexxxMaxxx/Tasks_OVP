@@ -27,31 +27,30 @@ body {
 	background-position: center;
 }
 .persons,
-	.products,
-	.results {
-		width: 50%;
-		min-height: 400px;
-		margin: 0 auto;
-		border: 2px solid $light-white-color;
-		border-radius: 20px;
-		background-color: transparent;
-		backdrop-filter: blur(15px);
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		
+.products,
+.results {
+	width: 50%;
+	min-height: 400px;
+	margin: 0 auto;
+	border: 2px solid $light-white-color;
+	border-radius: 20px;
+	background-color: transparent;
+	backdrop-filter: blur(15px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-		&__header {
-			padding: $indent $indent 0px;
-		}
-		&__content {
-			padding: $indent;
-		}
-		&__footer {
-			padding: $indent;
-			align-self: center !important;
-		}
+	&__header {
+		padding: $indent $indent 0px;
 	}
+	&__content {
+		padding: $indent;
+	}
+	&__footer {
+		padding: $indent;
+		align-self: center !important;
+	}
+}
 
 .header-list {
 	margin-bottom: $indent;
@@ -256,7 +255,6 @@ body {
 		padding: 10px 15px;
 	}
 }
-
 
 @font-face {
 	font-family: $accent-font;

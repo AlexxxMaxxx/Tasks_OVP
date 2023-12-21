@@ -8,11 +8,12 @@
 				<person-list :persons="getPersons" @remove="remove" />
 			</div>
 			<div class="persons__footer footer">
-				<app-button 
-				class="next-btn"
-				:class="{ disabled : hasError }" @click="allowTransition">{{
-					buttonContent
-				}}</app-button>
+				<app-button
+					class="next-btn"
+					:class="{ disabled: hasError }"
+					@click="allowTransition"
+					>{{ buttonContent }}</app-button
+				>
 			</div>
 		</div>
 	</div>
@@ -38,7 +39,7 @@ export default {
 		...mapGetters({
 			getPersons: 'person/getPersons',
 			getPersonsLength: 'person/getPersonsLength',
-		})
+		}),
 	},
 
 	methods: {
@@ -60,20 +61,20 @@ export default {
 		},
 
 		allowTransition() {
-			const len = this.getPersonsLength;
-			this.hasError = true;
+			const len = this.getPersonsLength
+			this.hasError = true
 
 			if (len === 0) {
-				this.buttonContent = 'Нет тела, нет дела! Добавьте кого-нибудь!';
+				this.buttonContent = 'Нет тела, нет дела! Добавьте кого-нибудь!'
 			} else if (len === 1) {
-				this.buttonContent = 'Кушать в одиночестве не хорошо :( Добавьте кого-нибудь еще!';
+				this.buttonContent =
+					'Кушать в одиночестве не хорошо :( Добавьте кого-нибудь еще!'
 			} else {
-				this.buttonContent = 'Добавить продукты';
-				this.$router.push('/products');
-				this.hasError = false;
+				this.buttonContent = 'Добавить продукты'
+				this.$router.push('/products')
+				this.hasError = false
 			}
 		},
-		
 	},
 }
 </script>

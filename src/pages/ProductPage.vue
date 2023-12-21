@@ -14,7 +14,8 @@
 			<div class="products__footer footer">
 				<app-button
 					class="next-btn"
-					:class="{disabled : hasError}" @click="allowTransition"
+					:class="{ disabled: hasError }"
+					@click="allowTransition"
 					>{{ buttonContent }}</app-button
 				>
 			</div>
@@ -60,17 +61,17 @@ export default {
 		},
 
 		allowTransition() {
-			const len = this.getProductsLength;
-			this.hasError = true;
+			const len = this.getProductsLength
+			this.hasError = true
 
 			if (len === 0) {
-				this.buttonContent = 'А чего считать-то? Добавьте что-нибудь!';
+				this.buttonContent = 'А чего считать-то? Добавьте что-нибудь!'
 			} else if (len === 1) {
-				this.buttonContent = 'А что это мы на диете? Добавьте что-нибудь еще!';
-			} else { 
-				this.buttonContent = 'Получить результаты';
-				this.$router.push('/results');
-				this.hasError = false;
+				this.buttonContent = 'А что это мы на диете? Добавьте что-нибудь еще!'
+			} else {
+				this.buttonContent = 'Получить результаты'
+				this.$router.push('/results')
+				this.hasError = false
 			}
 		},
 	},

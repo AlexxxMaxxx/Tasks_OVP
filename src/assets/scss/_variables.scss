@@ -6,16 +6,16 @@ $green-color: #223103; /*#1C250B #74982D*/
 
 $dark-brown-color: #220101;
 
-$light-brown-color: rgba(154,74,74,.5);
-$light-red-color: rgba(189, 51, 51, .5);
-$light-blue-color: rgba(70, 118, 160, .5);
-$light-yellow-color: rgba(228, 150, 34, .5);
-$light-white-color: rgba(255, 255, 255, .5);
+$light-brown-color: rgba(154, 74, 74, 0.5);
+$light-red-color: rgba(189, 51, 51, 0.5);
+$light-blue-color: rgba(70, 118, 160, 0.5);
+$light-yellow-color: rgba(228, 150, 34, 0.5);
+$light-white-color: rgba(255, 255, 255, 0.5);
 $light-pink-color: rgb(249, 202, 202);
 
-$border-brown-color: rgba(154,74,74,.9);
-$border-red-color: rgba(189, 51, 51, .9);
-$border-blue-color: rgba(70, 118, 160, .9);
+$border-brown-color: rgba(154, 74, 74, 0.9);
+$border-red-color: rgba(189, 51, 51, 0.9);
+$border-blue-color: rgba(70, 118, 160, 0.9);
 $border-yellow-color: rgba(191, 123, 22, 0.9);
 
 $light-background-color: rgba(234, 209, 194, 0.325);
@@ -23,10 +23,10 @@ $light-background-color: rgba(234, 209, 194, 0.325);
 $body-height: 100vh;
 $indent: 5px;
 $accent-font: 'PacificoRegular';
-$small-font-size: .75rem;
+$small-font-size: 0.75rem;
 $medium-font-size: 1rem;
 $big-font-size: 1.2rem;
-$transition: all .3s;
+$transition: all 0.3s;
 $medium-border-radius: 10px;
 $border: 2px solid $border-brown-color;
 $margin: 0px 5px 15px 0px;

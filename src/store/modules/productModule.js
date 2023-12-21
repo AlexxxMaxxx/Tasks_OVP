@@ -21,9 +21,7 @@ export const productModule = {
 				price: 300,
 				amount: 1,
 				payer: { id: 4, name: 'Саша' },
-				chosenPeople: [
-					{ id: 4, name: 'Саша' }
-				],
+				chosenPeople: [{ id: 4, name: 'Саша' }],
 				total: 300,
 			},
 			{
@@ -58,9 +56,7 @@ export const productModule = {
 				price: 400,
 				amount: 1,
 				payer: { id: 5, name: 'Кодя' },
-				chosenPeople: [
-					{ id: 5, name: 'Кодя' },
-				],
+				chosenPeople: [{ id: 5, name: 'Кодя' }],
 				total: 400,
 			},
 		],

@@ -1,13 +1,14 @@
 <template>
 	<div class="text-field">
-		 <label v-show="isLabel"
-		 class="text-field__label label" 
-		 for="text"><slot></slot></label>
-		 <input 
-		 :value="modelValue" 
-		 @input="updateInput" 
-		 class="text-field__input input" 
-		 name="text"/>
+		<label v-show="isLabel" class="text-field__label label" for="text"
+			><slot></slot
+		></label>
+		<input
+			:value="modelValue"
+			@input="updateInput"
+			class="text-field__input input"
+			name="text"
+		/>
 	</div>
 </template>
 

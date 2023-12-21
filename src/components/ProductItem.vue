@@ -5,7 +5,8 @@
 			<app-button
 				class="product-item__rmv-btn rmv-btn"
 				@click="$emit('remove', product)"
-				>Удалить</app-button>
+				>Удалить</app-button
+			>
 		</div>
 
 		<div class="product-item__content">
@@ -22,12 +23,12 @@
 				<span>Кто угощает:</span> {{ product.payer.name }}
 			</div>
 			<div class="product-item__checkbox-field">
-				<span>Кто использовал:</span> 
-			<div v-for="chosenPeople in product.chosenPeople">
-				{{ chosenPeople.name }}
+				<span>Кто использовал:</span>
+				<div v-for="chosenPeople in product.chosenPeople">
+					{{ chosenPeople.name }}
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </template>
 
