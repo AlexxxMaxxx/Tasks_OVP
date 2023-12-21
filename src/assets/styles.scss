@@ -1,0 +1,12 @@
+@import "./variables.scss";
+
+body {
+  color: $dark-brown-color;
+}
+
+@font-face {
+font-family: "PacificoRegular";  
+src: url("./fonts/Pacifico/Pacifico-Regular.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal;
+ }

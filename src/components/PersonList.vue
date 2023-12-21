@@ -1,7 +1,7 @@
 <template>
 	<div class="person-list">
 		<div class="person-list__header-list header-list">
-			<h3>{{ getHeaderList }}</h3>
+			<h2>{{ getHeaderList }}</h2>
 		</div>
 		<div class="person-list__content-list content-list">
 			<person
@@ -51,4 +51,5 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

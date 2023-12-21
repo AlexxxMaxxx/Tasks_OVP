@@ -5,10 +5,18 @@
 				<h1>Результаты</h1>
 			</div>
 			<div class="results__content content">
-				<app-button class="toggle-btn" @click="whoWhomlist = true"
+				<div class="results__btns">
+				<app-button 
+				class="results_select-btn select-btn" 
+				@click="whoWhomlist = true"
+				:class="{ selected: whoWhomlist }"
 					>Кто-кому</app-button>
-				<app-button class="toggle-btn" @click="whoWhomlist = false"
+				<app-button 
+				class="results_select-btn select-btn" 
+				@click="whoWhomlist = false"
+				:class="{ selected : !whoWhomlist }"
 					>Кому-кто</app-button>
+					</div>
 			  <WhoWhomList v-if="whoWhomlist" :persons="getPersons"/>
 				<WhomWhoList v-else :persons="getPersons" :whomWho="whomWho"/>
 			</div>
@@ -98,4 +106,11 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.results__btns {
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+	padding-bottom: 15px;
+}
+</style>

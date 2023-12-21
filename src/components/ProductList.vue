@@ -1,7 +1,7 @@
 <template>
 	<div class="product-list">
 		<div class="product-list__header-list header-list">
-			<h3>{{ getHeaderList }}</h3>
+			<h2>{{ getHeaderList }}</h2>
 		</div>
 		<div class="product-list__content-list content-list">
 			<product
@@ -13,7 +13,7 @@
 			/>
 		</div> 
 		<div class="product-list__footer-list footer-list">
-			<h3>Промежуточный итог: {{ getSubtotal }}</h3>
+			<h2>Промежуточный итог: {{ getSubtotal }}</h2>
 		</div>
 	</div>
 </template>
@@ -65,5 +65,3 @@ export default {
 	},
 }
 </script>
-
-<style scoped></style>

@@ -11,8 +11,8 @@
 					@remove="remove"
 				></product-list>
 			</div>
-			<div class="products__footer footer">
-				<app-button :class="[hasError ? 'next-btn_disabled' : 'next-btn']" @click="allowTransition"
+			<div class="products__footer footer next-btn">
+				<app-button :class="{disabled : hasError}" @click="allowTransition"
 					>{{ buttonContent }}</app-button
 				>
 			</div>
@@ -65,7 +65,7 @@ export default {
 				this.buttonContent = 'А чего считать-то? Добавьте что-нибудь!';
 			} else if (len === 1) {
 				this.buttonContent = 'А что это мы на диете? Добавьте что-нибудь еще!';
-			} else { // replace on animation
+			} else { 
 				this.buttonContent = 'Получить результаты';
 				this.$router.push('/results');
 				this.hasError = false;
@@ -74,5 +74,3 @@ export default {
 	},
 }
 </script>
-
-<style scoped></style>

@@ -1,27 +1,33 @@
 <template>
 	<form class="product-form" @submit.prevent>
+		<div class="product-form__fields">
+		<div class="product-form__list-input">
 		<app-input
 			class="product-form__input input"
 			:class="{ invalid : v$.name.$error }"
+			:isLabel="true"
 			v-model.trim="name"
 			type="text"
-			placeholder="Название"
-		/>
+			placeholder="Название">Название </app-input>
 		<app-input
 			class="product-form__input input"
 			:class="{ invalid: v$.price.$error }"
+			:isLabel="true"
 			v-model="price"
 			type="number"
 			placeholder="Стоимость"
-		/>
+		>Стоимость </app-input>
 		<app-input
 			class="product-form__input input"
 			:class="{ invalid: v$.amount.$error }"
+			:isLabel="true"
 			v-model="amount"
 			type="number"
-			placeholder="Количество"
-		/>
-
+			placeholder="Количество">Количество </app-input>
+	</div>
+	
+	<div class="product-form__select-form">
+		<div class="product-form__title">Кто оплачивал?</div>
 		<select class="product-form__select" v-model="payer">
 			<option
 				class="product-form__option"
@@ -31,28 +37,38 @@
 				{{ person.name }}
 			</option>
 		</select>
+	</div>
 
 		<form class="product-form__checkbox-form">
-			<div class="product-form__title">Кто ел/пил?</div>
+			<div class="product-form__title">Кто использовал?</div>
 
 			<div class="product-form__content">
 				<label class="product-form__checkbox">
 					<input
+						class="check-box"
+						:isLabel="true"
 						type="checkbox"
 						@change="toggleAll"
 						:indeterminate="indeterminate"
-						v-model="allChosen"
-					/>
-					<span>{{ allChosen ? 'Un-choose All' : 'Choose All' }}</span>
+						v-model="allChosen"/>
+					<span class="check-style"></span>
+					{{ allChosen ? 'Снять выбор' : 'Выбрать всех' }}
 
-					<label class="product-form__checkbox" v-for="person in persons">
-						<input type="checkbox" :value="person" v-model="chosenPeople" />
-						<span>{{ person.name }}</span>
+					<label 
+					class="product-form__checkbox" 
+					v-for="person in persons">
+						<input 
+						class="check-box"
+						type="checkbox" 
+						:value="person" 
+						v-model="chosenPeople" />
+						<span class="check-style"></span>
+						{{ person.name }}
 					</label>
 				</label>
 			</div>
 		</form>
-
+	</div>
 		<app-button 
 		class="product-form__add-btn add-btn" 
 		:class="{ disabled: hasError }"
@@ -172,4 +188,80 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style lang="scss">
+.product-form {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.product-form__fields {
+	padding: 15px;
+	display: flex;
+	justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+	gap: 5px;
+}
+
+.product-form__list-input {
+	width: 33%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.product-form__add-btn {
+	display: block !important;
+}
+
+	.product-form__title {
+  margin-bottom: 0.25rem;
+	font-size: .75rem;
+	color: $dark-brown-color;
+	}
+	.product-form__select {
+  /*width: 33%;*/
+	background: transparent;
+	padding: 5px 10px;
+	border: 2px solid $border-blue-color;
+	color: $dark-brown-color;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+}
+
+.product-form__checkbox {
+	display: block;
+}
+
+.check-box {
+	margin: 15px;
+	width: 1px;
+	height: 1px;
+	position: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	padding-left: 20px;
+}
+
+.check-style {
+	position: absolute;
+ 	width: 16px;
+ 	height: 16px;
+ 	border: 1px solid $border-blue-color;
+	border-radius: 3px;
+	margin-left: -20px;
+	}
+
+	.check-box:checked + .check-style::before {
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: $border-blue-color;
+		border-radius: 3px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+</style>

@@ -1,9 +1,10 @@
 <template>
   <div class="whom-who-list list">
+    <div class="whom-who-list__content-list content-list">
    <div 
         class="whom-who-list__item list__item"
         v-for="person in persons">
-          <h3 class="whom-who-list__header list__header">
+          <h3 class="whom-who-list__name name">
             {{ person.name.slice(0, -1) + 'е' + ' должны' }}</h3>
             <div 
             v-for="who in whomWho.find(w => w.whom === person.id).who">
@@ -13,6 +14,7 @@
             v-if="whomWho.find(w => w.whom === person.id).who.length === 0">
               <p>Никто ничего не должен, к сожалению.</p>
             </div>
+        </div>
         </div>
   </div>
 </template>

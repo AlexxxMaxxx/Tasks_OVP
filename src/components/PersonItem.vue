@@ -1,6 +1,6 @@
 <template>
 	<div class="person-item">
-		<div class="person-item__name">{{ person.name }}</div>
+		<div class="person-item__name name">{{ person.name }}</div>
 		<app-button
 			class="person-item__rmv-btn rmv-btn"
 			@click="$emit('remove', person)"
@@ -25,6 +25,7 @@ export default {
 	padding: 15px;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .person-item__name {

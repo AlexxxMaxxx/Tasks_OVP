@@ -1,36 +1,33 @@
 <template>
 	<div class="product-item">
 		<div class="product-item__header">
-			<div class="product-item__text-property">{{ product.name }}</div>
-			<div class="product-item__number-property">
-				Итого: {{ product.total }}
-			</div>
-		</div>
-
-		<div class="product-item__content">
-			<div class="product-item__number-property">
-				Стоимость: {{ product.price }}
-			</div>
-			<div class="product-item__number-property">
-				Количество: {{ product.amount }}
-			</div>
-			<div class="product-item__select-property">
-				Кто угощает: {{ product.payer.name }}
-			</div>
-			<div class="product-item__checkbox-property">
-				Кто использовал:
-				<div v-for="chosenPeople in product.chosenPeople">
-					{{ chosenPeople.name }}
-				</div>
-			</div>
+			<div class="product-item__name name">{{ product.name }}</div>
 			<app-button
 				class="product-item__rmv-btn rmv-btn"
 				@click="$emit('remove', product)"
-				>Удалить</app-button
-			>
+				>Удалить</app-button>
 		</div>
 
-		<div class="product-item__content_hidden"></div>
+		<div class="product-item__content">
+			<div class="product-item__number-field">
+				<span>Стоимость:</span> {{ product.price }}
+			</div>
+			<div class="product-item__number-field">
+				<span>Количество:</span> {{ product.amount }}
+			</div>
+			<div class="product-item__number-field">
+				<span>Итого:</span> {{ product.total }}
+			</div>
+			<div class="product-item__select-field">
+				<span>Кто угощает:</span> {{ product.payer.name }}
+			</div>
+			<div class="product-item__checkbox-field">
+				<span>Кто использовал:</span> 
+			<div v-for="chosenPeople in product.chosenPeople">
+				{{ chosenPeople.name }}
+			</div>
+		</div>
+	</div>
 	</div>
 </template>
 
@@ -49,9 +46,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .product-item {
-	/* доделать */
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
@@ -62,20 +58,30 @@ export default {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding: 15px;
-	background-color: rgb(134, 127, 140);
-}
-
-.product-item__header div:first-child {
-	font-weight: bold;
+	padding: 0px 15px 15px;
 }
 
 .product-item__content {
 	/* media-запрос при уменьшении размера окна */
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding: 15px;
-	background-color: rgb(210, 207, 213);
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.product-item__content > div {
+	width: 40%;
+	flex-grow: 2;
+	border: 1px solid $light-white-color;
+}
+
+.product-item__content > div > span {
+	font-weight: 900;
+}
+
+.product-item__checkbox-field {
+	flex-grow: 2;
+	order: 2
 }
 </style>

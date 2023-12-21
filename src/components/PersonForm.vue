@@ -3,9 +3,10 @@
 			<app-input 
 			class="person-form__input input" 
 			:class="{invalid: hasError }"
+			:isLabel="false"
 			v-model.trim="name" 
 			type="text" 
-			placeholder="Имя" />
+			placeholder="Имя"/>
 			<app-button
 			class="person-form__add-btn add-btn" 
 			:class="{disabled: hasError}" @click="inputValidation">{{
@@ -75,7 +76,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 .person-form {
 	display: flex;
 	gap: 5px;
