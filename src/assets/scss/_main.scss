@@ -1,0 +1,24 @@
+@import './_variables.scss';
+
+.main {
+	height: $body-height;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	& .glow {
+		color: $dark-brown-color;
+		font-size: 48px;
+		letter-spacing: 3px;
+		font-family: $accent-font;
+		& span {
+			transition: $transition;
+			&:hover {
+				text-shadow: 0 0 10px $light-pink-color, 0 0 30px $light-pink-color,
+					0 0 80px $light-pink-color, 0 0 160px $light-pink-color;
+				color: $light-brown-color;
+			}
+		}
+	}
+}

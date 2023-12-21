@@ -1,0 +1,38 @@
+@import './_variables.scss';
+
+.text-field {
+	display: flex;
+	flex-direction: column;
+	&__label {
+		margin-bottom: 0.25rem;
+		font-size: $small-font-size;
+		color: $dark-brown-color;
+	}
+	&__input {
+		padding: $padding;
+		background: transparent;
+		border: 2px solid $border-blue-color;
+		color: $dark-brown-color;
+		border-radius: 0.25rem;
+		font-size: 1rem;
+		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		&::placeholder {
+			color: #212529;
+			opacity: 0.4;
+		}
+		&:focus {
+			color: $dark-brown-color;
+			border-color: $light-white-color;
+			outline: 0;
+			box-shadow: 0px 0px 0px 0.01rem $light-white-color,
+				0px 0px 10px 0.01rem $light-white-color,
+				0px 0px 20px 0.01rem $light-white-color;
+		}
+	}
+	.invalid > .text-field__input {
+		border: 1px solid $border-red-color;
+		box-shadow: 0px 0px 0px 0.01rem $light-pink-color,
+			0px 0px 10px 0.01rem $light-red-color,
+			0px 0px 20px 0.01rem $border-red-color;
+	}
+}

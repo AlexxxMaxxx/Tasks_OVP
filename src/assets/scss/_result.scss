@@ -1,0 +1,20 @@
+@import './_variables.scss';
+
+.results__btns {
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+	padding-bottom: 15px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  &__item {
+    margin: $margin;
+    border: $border;
+	  border-radius: 10px;
+	  padding: 10px 15px;
+  }
+}

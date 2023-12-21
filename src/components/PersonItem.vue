@@ -21,14 +21,11 @@ export default {
 </script>
 
 <style scoped>
+/*
 .person-item {
 	padding: 15px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-
-.person-item__name {
-	/* как-нибудь выделять */
-}
+}*/
 </style>

@@ -1,0 +1,107 @@
+@import './_variables.scss';
+@import './button';
+@import './input';
+@import './result';
+@import './main';
+@import './products';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.app {
+	padding: 20px;
+}
+
+body {
+	font-size: $medium-font-size;
+	font-family: sans-serif;
+	color: $dark-brown-color;
+	background: linear-gradient(
+			$light-background-color 100%,
+			$light-background-color 100%
+		),
+		url('@/assets/img/IMG_8533.JPG');
+	height: $body-height;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	& .persons,
+	.products,
+	.results {
+		width: 50%;
+		min-height: 400px;
+		
+		margin: 0 auto;
+		border: 2px solid $light-white-color;
+		border-radius: 20px;
+		background-color: transparent;
+		backdrop-filter: blur(15px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&__header {
+			padding: $indent $indent 0px;
+		}
+		&__content {
+			padding: $indent;
+		}
+		&__footer {
+			padding: $indent;
+			align-self: center;
+		}
+	}
+}
+
+.header-list {
+	margin-bottom: $indent;
+}
+
+.header-list,
+.footer-list,
+.results__header {
+	font-family: $accent-font !important;
+}
+
+.name {
+	font-family: sans-serif;
+	font-weight: 600;
+	font-size: $big-font-size;
+	text-align: center;
+}
+
+.content-list {
+	width: 100%;
+	height: 300px;
+	overflow-y: scroll;
+	background-color: transparent;
+	&::-webkit-scrollbar {
+		width: 10px;
+		background-color: transparent;
+		&-thumb {
+			border-radius: $medium-border-radius;
+			background-color: $border-brown-color;
+		}
+		&-track {
+			-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+			border-radius: $medium-border-radius;
+			background-color: transparent;
+		}
+	}
+	& > * {
+		border: $border;
+		border-radius: $medium-border-radius;
+		margin: $margin;
+	}
+}
+
+@font-face {
+	font-family: $accent-font;
+	src: url('../fonts/Pacifico/Pacifico-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}

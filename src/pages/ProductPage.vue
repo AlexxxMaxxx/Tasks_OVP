@@ -11,8 +11,10 @@
 					@remove="remove"
 				></product-list>
 			</div>
-			<div class="products__footer footer next-btn">
-				<app-button :class="{disabled : hasError}" @click="allowTransition"
+			<div class="products__footer footer">
+				<app-button
+					class="next-btn"
+					:class="{disabled : hasError}" @click="allowTransition"
 					>{{ buttonContent }}</app-button
 				>
 			</div>

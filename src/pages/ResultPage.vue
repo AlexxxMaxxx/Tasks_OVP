@@ -105,12 +105,3 @@ export default {
 	},
 }
 </script>
-
-<style scoped>
-.results__btns {
-	display: flex;
-	justify-content: flex-end;
-	gap: 15px;
-	padding-bottom: 15px;
-}
-</style>

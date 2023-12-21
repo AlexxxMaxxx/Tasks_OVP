@@ -67,7 +67,7 @@ export default {
 				this.buttonContent = 'Нет тела, нет дела! Добавьте кого-нибудь!';
 			} else if (len === 1) {
 				this.buttonContent = 'Кушать в одиночестве не хорошо :( Добавьте кого-нибудь еще!';
-			} else { // replace on animation
+			} else {
 				this.buttonContent = 'Добавить продукты';
 				this.$router.push('/products');
 				this.hasError = false;
