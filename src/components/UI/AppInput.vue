@@ -1,6 +1,6 @@
 <template>
 	<div class="text-field">
-	<!--	<label v-show="isLabel" class="text-field__label label" for="text"
+		<label v-show="isLabel" class="text-field__label label" for="text"
 			><slot></slot
 		></label>
 		<input
@@ -9,9 +9,8 @@
 			class="text-field__input input"
 			name="text"
 		/>
-
-	  <v-text-field :rules="rules"></v-text-field>
-		-->
+	 <!-- <v-text-field :rules="rules"></v-text-field>-->
+		
 	</div>
 </template>
 

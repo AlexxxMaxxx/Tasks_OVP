@@ -1,4 +1,4 @@
-<template>
+<template> <!--YES-->
 	<form class="person-form" @submit.prevent>
 		<app-input
 			class="person-form__input input"
