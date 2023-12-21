@@ -1,7 +1,7 @@
 <template>
-	<button class="btn">
+	<v-btn class="btn" block rounded="lg" size="x-large">
 		<slot></slot>
-	</button>
+	</v-btn>
 </template>
 
 <script>
